@@ -2,6 +2,8 @@
 
 Une application météo responsive développée avec HTML, CSS (Tailwind) et JavaScript.
 
+Live : [click here](https://x-jonica.github.io/web-meteo-app/)
+
 ## ✨ Fonctionnalités
 
 - 🔍 **Recherche de ville** - Obtenez la météo pour n'importe quelle ville
