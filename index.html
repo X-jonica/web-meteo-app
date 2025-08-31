@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application Météo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0EA5E9",
+              secondary: "#0369A1",
+              accent: "#F97316",
+              dark: "#0F172A",
+              light: "#F8FAFC",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-[url('./assets/images/meteo.jpg')] bg-cover bg-center h-screen flex items-center justify-center"
+  >
+    <div
+      id="app"
+      class="bg-white/80 backdrop-blur-md rounded shadow-xl overflow-hidden w-full max-w-2xl mt-4"
+    >
+      <!-- En-tête -->
+      <div
+        id="head-box"
+        class="bg-gradient-to-r from-primary to-secondary text-white p-6 text-center"
+      >
+        <h1
+          class="text-3xl font-bold mb-2 flex items-center justify-center gap-2"
+        >
+          <i class="fas fa-cloud-sun"></i> Application Météo
+        </h1>
+        <p class="text-blue-100">Obtenez les prévisions météo en temps réel</p>
+      </div>
+
+      <!-- section de recherche -->
+      <div id="search-section" class="p-6 bg-white">
+        <div class="flex flex-col sm:flex-row gap-3 mb-4">
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Entrer une ville..."
+            class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+          <button
+            id="search-btn"
+            class="bg-primary hover:bg-secondary text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
+          >
+            <i class="fas fa-search"></i> Rechercher
+          </button>
+        </div>
+        <button
+          id="location-btn"
+          class="w-full bg-gray-100 hover:bg-gray-200 text-dark font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
+        >
+          <i class="fas fa-location-arrow"></i> Utiliser ma position
+        </button>
+      </div>
+
+      <!-- Section pour afficher les erreurs -->
+      <div
+        id="error-message"
+        class="hidden p-4 mx-6 mt-4 mb-6 bg-red-50 text-red-700 rounded-lg border border-red-200 text-center"
+      ></div>
+
+      <!-- Section de chargement -->
+      <div id="loading" class="hidden mx-auto my-8"></div>
+
+      <!-- Section meteo actuelle -->
+      <div id="current-weather" class="hidden p-6">
+        <h2
+          class="text-2xl font-semibold text-dark mb-6 text-center border-b border-gray-200 pb-3"
+        >
+          Météo Actuelle
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="bg-gradient-to-br from-primary to-secondary text-white p-6 rounded-2xl shadow-md weather-card text-center"
+          >
+            <div id="city-name" class="text-2xl font-bold mb-4"></div>
+            <div id="temperature" class="text-5xl font-bold my-4"></div>
+            <div id="description" class="text-xl mb-4"></div>
+          </div>
+
+          <div class="flex flex-col justify-center space-y-4">
+            <div class="bg-gray-50 p-4 rounded-xl shadow-sm">
+              <div class="flex items-center gap-3">
+                <i class="fas fa-tint text-primary text-xl"></i>
+                <div>
+                  <p class="text-gray-500">Humidité</p>
+                  <div id="humidity" class="font-semibold text-lg"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-xl shadow-sm">
+              <div class="flex items-center gap-3">
+                <i class="fas fa-wind text-primary text-xl"></i>
+                <div>
+                  <p class="text-gray-500">Vitesse du vent</p>
+                  <div id="wind-speed" class="font-semibold text-lg"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section previsions -->
+      <div id="forecast" class="hidden p-6">
+        <h3
+          class="text-2xl font-semibold text-dark mb-6 text-center border-b border-gray-200 pb-3"
+        >
+          Prévisions 5 jours
+        </h3>
+        <div
+          id="forecast-list"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4"
+        ></div>
+      </div>
+
+      <!-- Pied de page -->
+      <div id="foot-page" class="p-4 text-center text-gray-500 text-sm bg-white/50">
+        © 2025 Application Météo | Données météorologiques : <a href="https://home.openweathermap.org/" class="underline" target="_blank">openweathermap</a>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
