@@ -58,15 +58,6 @@ Vous pouvez facilement personnaliser l'apparence de l'application en modifiant l
 Cette application utilise l'API [OpenWeatherMap](https://openweathermap.org/api) pour récupérer les données météorologiques.
 Vous devrez obtenir une clé API gratuite et l'ajouter dans le fichier `script.js`.
 
-## 📄 Licence
-
-Ce projet est sous licence **MIT**. Voir le fichier LICENSE pour plus de détails.
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues !
-N'hésitez pas à soumettre une pull request ou à ouvrir une issue pour discuter des améliorations.
-
 ---
 
 Développé avec ❤️ en utilisant **HTML, Tailwind CSS et JavaScript**
